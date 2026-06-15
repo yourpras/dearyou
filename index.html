@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maafin Aku Ya? 🥺</title>
+    
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Sacramento&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Music Toggle -->
+    <button id="music-toggle" class="music-btn" aria-label="Toggle Music">
+        <svg class="icon-play" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+        <svg class="icon-mute hidden" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.18l5.18 5.18 1.27-1.27L4.27 3zM14 7h4V3h-6v5.18l2 2V7z"/>
+        </svg>
+    </button>
+
+    <!-- Background Music Audio Element -->
+    <!-- Default audio points to a soft, romantic instrumental track -->
+    <audio id="bg-music" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3" type="audio/mpeg">
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Particles Container -->
+    <div id="particles-container" class="particles-container"></div>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Envelope Wrapper (3D Scene) -->
+        <div class="envelope-wrapper" id="envelope-wrapper">
+            <!-- Panda Sticker on top of Envelope -->
+            <div class="panda-sticker" id="panda-sticker">
+                <div class="panda-bob">
+                    <img id="panda-img" src="assets/sticker_4.gif" alt="Panda Sticker">
+                </div>
+            </div>
+
+            <div class="envelope" id="envelope">
+                <!-- Inside flap (background of envelope inside) -->
+                <div class="envelope-inside"></div>
+                
+                <!-- The Letter (Sits inside the envelope, slides out) -->
+                <div class="letter" id="letter">
+                    <div class="letter-inner">
+                        <h2 class="letter-title">Halo...</h2>
+                        <!-- Sad/Pleading Panda Sticker in Letter -->
+                        <div class="letter-panda">
+                            <img src="assets/sticker_21.gif" alt="Pleading Panda">
+                        </div>
+                        <div class="letter-body">
+                            <p>Sebelumnya, gua ingin meminta maaf yang sebesar-besarnya jika tindakan gua kemarin membuat lu merasa kurang nyaman atau merasa terintimidasi.</p>
+                            <p>Gua sama sekali tidak bermaksud buruk. Kemarin gua memang sempat mencari tahu tentang lu dari beberapa teman dekat lu karena gua benar-benar ingin berkenalan dan mengenal lu lebih dekat. Namun, gua sadar cara tersebut kurang tepat dan mungkin mengganggu privasi lu.</p>
+                            <p>Gua sangat menghargai privasi dan kenyamanan lu. Semoga lu berkenan memaafkan kekhilafan gua ya? 😊</p>
+                        </div>
+                        <div class="letter-signature">
+                            <p>Salam hangat,</p>
+                        </div>
+                        
+                        <!-- Response Buttons (Inside the expanded letter) -->
+                        <div class="action-buttons">
+                            <button id="btn-accept" class="btn btn-primary">Iya, dimaafkan 😊</button>
+                            <button id="btn-reject" class="btn btn-secondary">Nggak mau</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Envelope Flaps (Constructed with CSS borders/clip-paths) -->
+                <div class="flap top-flap"></div>
+                <div class="flap left-flap"></div>
+                <div class="flap right-flap"></div>
+                <div class="flap bottom-flap"></div>
+
+                <!-- Wax Seal (Click to open) -->
+                <div class="wax-seal" id="wax-seal">
+                    <div class="heart-seal"></div>
+                    <span class="click-hint">Buka Pesan</span>
+                </div>
+            </div>
+            <p class="instruction-text" id="instruction-text">Ada pesan untukmu, silakan dibuka... ✨</p>
+        </div>
+    </main>
+
+    <!-- Success Modal Overlay -->
+    <div id="success-overlay" class="success-overlay hidden">
+        <div class="success-content">
+            <!-- Cat OK Sticker -->
+            <div class="success-stickers">
+                <img class="sticker-ok" src="assets/sticker_19.gif" alt="Cat OK">
+            </div>
+            <h1 class="success-title">Terima kasih banyak ya... 😊</h1>
+            <p class="success-message">Gua sangat menghargai pengertian lu. Semoga ke depannya kita bisa berkomunikasi dengan lebih baik.</p>
+            <button id="btn-close-success" class="btn btn-primary">Tutup</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
