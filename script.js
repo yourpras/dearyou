@@ -16,14 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnCloseSuccess = document.getElementById('btn-close-success');
     
     const bgMusic = document.getElementById('bg-music');
-    const musicToggle = document.getElementById('music-toggle');
-    const iconPlay = musicToggle.querySelector('.icon-play');
-    const iconMute = musicToggle.querySelector('.icon-mute');
     
     const particlesContainer = document.getElementById('particles-container');
 
     let isEnvelopeOpened = false;
-    let isMusicPlaying = false;
     let particlesInterval = null;
 
     // Aesthetic, neutral emojis for floating particles (no love hearts)
@@ -99,31 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================================== */
     function playAudio() {
         bgMusic.play()
-            .then(() => {
-                isMusicPlaying = true;
-                iconPlay.classList.add('hidden');
-                iconMute.classList.remove('hidden');
-            })
             .catch(error => {
                 console.log('Audio autoplay prevented by browser. Waiting for interaction.', error);
             });
     }
-
-    function pauseAudio() {
-        bgMusic.pause();
-        isMusicPlaying = false;
-        iconPlay.classList.remove('hidden');
-        iconMute.classList.add('hidden');
-    }
-
-    musicToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (isMusicPlaying) {
-            pauseAudio();
-        } else {
-            playAudio();
-        }
-    });
 
     /* ==========================================================================
        Envelope Opening Sequences
